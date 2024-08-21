@@ -9601,7 +9601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1acba82415548c3a5fb3c79b5f442d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridLimits: {x: 3, y: 3}
+  gridLimits: {x: 5, y: 5}
 --- !u!4 &2013193371
 Transform:
   m_ObjectHideFlags: 0
