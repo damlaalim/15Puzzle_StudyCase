@@ -6,26 +6,26 @@ namespace _15Puzzle.Scripts.Cell
 {
     public class CellManager : MonoBehaviour
     {
-        [SerializeField] private List<CellController> _cells;
+        public List<CellController> cells;
         [SerializeField] private LevelManager _levelManager;
 
-        public void SwipeCells(CellController targetCell, Vector2 dir)
+        public void SwipeCells(CellController targetCell)
         {
             var targetX = targetCell.gridPosition.x;
             var targetY = targetCell.gridPosition.y;
-            
-            // find the cells to be swiped according to the direction of the operation
-            if (dir.x < 0)
-                CellSwipeControl(targetX, targetY, targetX, true, true, dir);
-            else if (dir.y < 0)
-                CellSwipeControl(targetX, targetY, targetY, true, false, dir);
-            else if (dir.x > 0)
-                CellSwipeControl(targetX, targetY, targetX, false, true, dir);
-            else if (dir.y > 0)
-                CellSwipeControl(targetX, targetY, targetY, false, false, dir);
+
+            // the axes of the selected cell are checked for gap respectively
+            if (CellSwipeControl(targetX, targetY, targetX, true, true, new Vector2(-1,0)))
+                return;
+            if (CellSwipeControl(targetX, targetY, targetY, true, false, new Vector2(0, -1)))
+                return;
+            if (CellSwipeControl(targetX, targetY, targetX, false, true, new Vector2(1, 0)))
+                return;
+            if (CellSwipeControl(targetX, targetY, targetY, false, false, new Vector2(0, 1)))
+                return;
         }
 
-        private void CellSwipeControl(int targetX, int targetY, int targetAxis, bool isNegative, bool isXAxis, Vector2 dir)
+        private bool CellSwipeControl(int targetX, int targetY, int targetAxis, bool isNegative, bool isXAxis, Vector2 dir)
         {
             // Swipe to the selected cell from the opposite direction of the cell to be swiped
 
@@ -37,7 +37,7 @@ namespace _15Puzzle.Scripts.Cell
             for (; isNegative ? i <= targetAxis : i >= targetAxis; i += isNegative ? 1 : -1)
             {
                 // check whether the cell exists or not
-                var cell = _cells.Find(cell => cell.gridPosition.x == (isXAxis ? i : targetX) 
+                var cell = cells.Find(cell => cell.gridPosition.x == (isXAxis ? i : targetX) 
                                                && cell.gridPosition.y == (isXAxis ? targetY : i));
                     
                 // swiping starts after the gap is found
@@ -46,6 +46,8 @@ namespace _15Puzzle.Scripts.Cell
                 else if (cell is null)
                     findTheSpace = true;
             }
+
+            return findTheSpace;
         }
     }
 }
