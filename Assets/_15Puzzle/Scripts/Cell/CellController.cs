@@ -1,15 +1,20 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace _15Puzzle.Scripts.Cell
 {
     public class CellController : MonoBehaviour
     {
+        public int number;
         public Vector2Int gridPosition;
         public bool isTouchable = true;
 
         [SerializeField] private float _swipeTime;
         [SerializeField] private AnimationCurve _curve;
+        [SerializeField] private TextMeshProUGUI _numText;
+
+        public void ChangeNumberText(string text) => _numText.text = text;
         
         public void Swipe(Vector2 direction)
         {
