@@ -318,6 +318,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -586,6 +588,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -929,6 +933,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1197,6 +1203,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1331,6 +1339,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1540,6 +1550,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1749,6 +1761,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -2033,6 +2047,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -2242,6 +2258,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -2376,6 +2394,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -2869,6 +2889,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -3965,6 +3987,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -4919,6 +4943,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -5187,6 +5213,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -5321,6 +5349,8 @@ MonoBehaviour:
   distance: 210
   levelController: {fileID: 0}
   _swipeTime: 0.3
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:

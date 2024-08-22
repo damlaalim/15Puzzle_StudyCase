@@ -15,9 +15,12 @@ namespace _15Puzzle.Scripts.Cell
         public float distance;
         public LevelController levelController;
 
-        [SerializeField] private float _swipeTime;
+        [SerializeField] private float _swipeTime, _scaleAnimDelay = .3f;
+        [SerializeField] private Vector3 _targetScale = Vector3.one * 1.2f;
         [SerializeField] private AnimationCurve _curve;
         [SerializeField] private TextMeshProUGUI _numText;
+
+        private bool correctPosFind;
 
         public void ChangeNumberText(string text) => _numText.text = text;
         
@@ -32,7 +35,7 @@ namespace _15Puzzle.Scripts.Cell
             StartCoroutine(Swipe_Routine(targetPos));
 
             // calculating the correct targeted position according to the type of game
-            var correctPosFind = GameManager.Instance.gameType switch
+            var newPosIsCorrect = GameManager.Instance.gameType switch
             {
                 GameType.Classic => CalculateCorrectPositionForClassic(),
                 GameType.Snake => CalculateCorrectPositionForSnake(),
@@ -41,8 +44,10 @@ namespace _15Puzzle.Scripts.Cell
             };
 
             // when it is in the correct position, the position of the other cells is checked
-            if (correctPosFind)
+            if (newPosIsCorrect)
                 cellManager.ControlCellCorrectPositions();
+
+            correctPosFind = newPosIsCorrect;
         }
         
         public IEnumerator Swipe_Routine(Vector3 targetPos)
@@ -62,6 +67,36 @@ namespace _15Puzzle.Scripts.Cell
 
             transform.localPosition = targetPos;
             cellManager.cellsIsTouchable = true;
+
+            if (correctPosFind)
+                StartCoroutine(ScaleAnimation_Routine());
+        }
+
+        private IEnumerator ScaleAnimation_Routine()
+        {
+            var init = 0f;
+            while (init <= _scaleAnimDelay / 2)
+            {
+                var normalized = init / (_scaleAnimDelay / 2);
+                transform.localScale = Vector3.Lerp(Vector3.one, _targetScale, normalized);
+                
+                init += Time.deltaTime;
+                yield return 0;
+            }
+
+            transform.localScale = _targetScale;
+            
+            init = 0f;
+            while (init <= _scaleAnimDelay / 2)
+            {
+                var normalized = init / (_scaleAnimDelay / 2);
+                transform.localScale = Vector3.Lerp(_targetScale, Vector3.one, normalized);
+                
+                init += Time.deltaTime;
+                yield return 0;
+            }
+
+            transform.localScale = Vector3.one;
         }
 
         public bool CalculateCorrectPositionForClassic()

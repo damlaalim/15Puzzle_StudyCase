@@ -6,7 +6,7 @@ namespace _15Puzzle.Scripts.Game
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; } 
-        public GameType gameType;
+        public GameType gameType = GameType.Classic;
         
         private void Awake()
         {
