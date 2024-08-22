@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using _15Puzzle.Scripts.Data;
-using _15Puzzle.Scripts.Game;
 using _15Puzzle.Scripts.Level;
+using _15Puzzle.Scripts.Manager;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using _15Puzzle.Scripts.Data;
-using _15Puzzle.Scripts.Game;
 using _15Puzzle.Scripts.Level;
+using _15Puzzle.Scripts.Manager;
 using TMPro;
 using UnityEngine;
 
@@ -26,6 +26,13 @@ namespace _15Puzzle.Scripts.Cell
         
         public void Swipe(Vector2 direction)
         {
+            // starts the timer when the first move is made
+            if (!GameManager.Instance.gameIsStart)
+            {
+                GameManager.Instance.gameIsStart = true;
+                TimeManager.Instance.StartTime();
+            }
+            
             var pos = transform.localPosition;
             
             var targetPos = new Vector3(pos.x + (direction.x * distance), pos.y + (direction.y  * distance), pos.z);
