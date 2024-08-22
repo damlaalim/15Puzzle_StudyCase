@@ -10,15 +10,11 @@ namespace _15Puzzle.Scripts.Cell
     public class CellManager : MonoBehaviour
     {
         public List<CellController> cells;
-        [SerializeField] private LevelManager _levelManager;
-        [SerializeField] private int _shuffleAnimationCount;
-        [SerializeField] private float _shuffleTime;
-
-        private void Start()
-        {
-            StartCoroutine(ShuffleAnimationForCells());
-        }
+        public bool cellsIsTouchable;
         
+        [SerializeField] private int _shuffleAnimationCount = 4;
+        [SerializeField] private float _shuffleTime = .2f; 
+
         public void SwipeCells(CellController targetCell)
         {
             var targetX = targetCell.gridPosition.x;
@@ -41,10 +37,10 @@ namespace _15Puzzle.Scripts.Cell
             // Swipe to the selected cell from the opposite direction of the cell to be swiped
 
             var findTheSpace = false;
-
+            var gridLimits = LevelManager.Instance.gridLimits;
             // I added different conditions to fit all directions
 
-            var i = isNegative ? 0 : isXAxis ? _levelManager.gridLimits.x - 1 : _levelManager.gridLimits.y - 1;
+            var i = isNegative ? 0 : isXAxis ? gridLimits.x - 1 : gridLimits.y - 1;
             for (; isNegative ? i <= targetAxis : i >= targetAxis; i += isNegative ? 1 : -1)
             {
                 // check whether the cell exists or not
@@ -69,11 +65,13 @@ namespace _15Puzzle.Scripts.Cell
                     return;
             }
 
-            Debug.Log("game over");
+            LevelManager.Instance.NextLevel();
         }
 
-        private IEnumerator ShuffleAnimationForCells()
+        public IEnumerator ShuffleAnimationForCells(float distance)
         {
+            var gridLimits = LevelManager.Instance.gridLimits;
+
             // run the shuffle animation as many times as you want it to run
             for (var i = 0; i < _shuffleAnimationCount; i++)
             {
@@ -85,9 +83,9 @@ namespace _15Puzzle.Scripts.Cell
                     // a previously uncreated position is created
                     while (true)
                     {
-                        var randomX = Random.Range(0, _levelManager.gridLimits.x);
-                        var randomY = Random.Range(0, _levelManager.gridLimits.y);
-                        var randomPos = new Vector3(randomX, randomY, 0);
+                        var randomX = Random.Range(0, gridLimits.x);
+                        var randomY = Random.Range(0, gridLimits.y);
+                        var randomPos = new Vector3(randomX * distance, randomY * distance, 0);
 
                         // returns to the beginning of the loop if a position has already been created
                         if (createdPositions.Contains(randomPos))
@@ -109,7 +107,7 @@ namespace _15Puzzle.Scripts.Cell
             // They return to their original position in the level
             foreach (var cell in cells)
             {
-                var originalPos = new Vector3(cell.gridPosition.x, cell.gridPosition.y, 0);
+                var originalPos = new Vector3(cell.gridPosition.x * distance, cell.gridPosition.y * distance, 0);
                 StartCoroutine(cell.Swipe_Routine(originalPos));
             }
         }
