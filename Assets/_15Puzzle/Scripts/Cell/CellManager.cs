@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using _15Puzzle.Scripts.Data;
+using _15Puzzle.Scripts.Game;
 using _15Puzzle.Scripts.Level;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -61,7 +62,11 @@ namespace _15Puzzle.Scripts.Cell
         {
             foreach (var cell in cells)
             {
-                if (!cell.CalculateCorrectPosition())
+                if (GameManager.Instance.gameType == GameType.Classic && !cell.CalculateCorrectPositionForClassic())
+                    return;
+                if (GameManager.Instance.gameType == GameType.Snake && !cell.CalculateCorrectPositionForSnake())
+                    return;
+                if (GameManager.Instance.gameType == GameType.Spiral && !cell.CalculateCorrectPositionForSpiral())
                     return;
             }
 

@@ -1,4 +1,6 @@
 using System.Collections;
+using _15Puzzle.Scripts.Data;
+using _15Puzzle.Scripts.Game;
 using _15Puzzle.Scripts.Level;
 using TMPro;
 using UnityEngine;
@@ -11,6 +13,7 @@ namespace _15Puzzle.Scripts.Cell
         public Vector2Int gridPosition;
         public CellManager cellManager;
         public float distance;
+        public LevelController levelController;
 
         [SerializeField] private float _swipeTime;
         [SerializeField] private AnimationCurve _curve;
@@ -27,23 +30,19 @@ namespace _15Puzzle.Scripts.Cell
             gridPosition = new Vector2Int(gridPosition.x + (int)direction.x, gridPosition.y + (int)direction.y);
 
             StartCoroutine(Swipe_Routine(targetPos));
-            
-            var correctPos = CalculateCorrectPosition();
+
+            // calculating the correct targeted position according to the type of game
+            var correctPosFind = GameManager.Instance.gameType switch
+            {
+                GameType.Classic => CalculateCorrectPositionForClassic(),
+                GameType.Snake => CalculateCorrectPositionForSnake(),
+                GameType.Spiral => CalculateCorrectPositionForSpiral(),
+                _ => false
+            };
 
             // when it is in the correct position, the position of the other cells is checked
-            if (correctPos)
+            if (correctPosFind)
                 cellManager.ControlCellCorrectPositions();
-        }
-        
-        public bool CalculateCorrectPosition()
-        {
-            var gridLimits = LevelManager.Instance.gridLimits;
-            // calculate which position it should be in according to its number from left to right
-            var column = (number - 1) % gridLimits.x;
-            var row = (number - 1) / gridLimits.x;
-            var y = gridLimits.y - 1 - row;
-            
-            return new Vector2Int(column, y) == gridPosition;
         }
         
         public IEnumerator Swipe_Routine(Vector3 targetPos)
@@ -63,6 +62,41 @@ namespace _15Puzzle.Scripts.Cell
 
             transform.localPosition = targetPos;
             cellManager.cellsIsTouchable = true;
+        }
+
+        public bool CalculateCorrectPositionForClassic()
+        {
+            var gridLimits = LevelManager.Instance.gridLimits;
+            
+            // calculate which position it should be in according to its number from left to right
+            var column = (number - 1) % gridLimits.x;
+            var row = (number - 1) / gridLimits.x;
+            var y = gridLimits.y - 1 - row;
+            
+            return new Vector2Int(column, y) == gridPosition;
+        }
+
+        public bool CalculateCorrectPositionForSnake()
+        {
+            var index = number - 1;
+            var gridLimits = LevelManager.Instance.gridLimits;
+            var y = index / gridLimits.x;
+            int x; 
+
+            // If the line number is odd, we go from right to left, otherwise from left to right.
+            if (y % 2 == 0)
+                x = index % gridLimits.x; 
+            else
+                x = gridLimits.x - 1 - (index % gridLimits.x); 
+
+            var correctPos = new Vector2Int(x, gridLimits.y - 1 - y);
+            return correctPos == gridPosition; 
+        }
+
+        public bool CalculateCorrectPositionForSpiral()
+        {
+            var correctPos = levelController.GetSpiralPosition(number);
+            return correctPos == gridPosition;
         }
     }
 }
