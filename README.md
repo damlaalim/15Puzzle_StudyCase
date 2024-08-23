@@ -37,4 +37,23 @@ Her seviyede farklı gridler bulunmaktadır ve bu oyunun zorluğunu etkileyen bi
 <img src= "https://github.com/user-attachments/assets/a7cb5274-b23f-4799-bb1c-8cea8653491d" width="200px">
 <img src= "https://github.com/user-attachments/assets/ea604e8d-318a-42cf-8ad7-e2e720f18e94" width="400px">
 
-  
+
+## Oyun İçi UI
+  Oyun içerisinde detaylı bilgiler bulunduran paneller vardır. Bu bilgiler: level türü, modu, level sayısı, geçen süre, hareket sayısıdır. Bunun dışında oyunu durdurma, yeniden başlatma, ayarlar ve sadece zor modda gözüken sayıları görüntüleme butonları bulunmaktadır.
+ 
+<img src= "https://github.com/user-attachments/assets/0b767eff-a9af-4cfa-9333-d7e3bff98c3d" width="200px">
+
+## Ayarlar UI
+  Ayarlarda oyunun müziğini ve ses efektlerini açıp / kapatmak için butonlar bulunur. Bunun dışında her level bitiminde kayıt edilen bilgiler de listelenmektedir.
+ 
+<img src= "https://github.com/user-attachments/assets/c5289edd-8241-44b7-9cd6-c8b9867e15f3" width="200px">
+
+## Başlangıç UI 
+  Oyuna giren oyuncunun karşılaşacağı ilk ekrandır. Oyuncunun kaldığı leveldan devam etmesi için ve ayarları açabilmesi için butonlar bulunur.
+ 
+<img src= "https://github.com/user-attachments/assets/8951e710-0d37-4c0e-a267-737a2af60da3" width="200px">
+
+## Oyun Sonu UI
+  Seviye tamamlandıktan sonra gelen ekrandır. Bir sonraki levela geçmek için bir buton bulundurur. 
+
+<img src= "https://github.com/user-attachments/assets/a84da25d-a035-427e-95d7-450cc4369e8d" width="200px"> 
