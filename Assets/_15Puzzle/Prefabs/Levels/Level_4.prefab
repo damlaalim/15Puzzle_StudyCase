@@ -1942,7 +1942,7 @@ RectTransform:
   m_GameObject: {fileID: 2976097925479566802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.78, y: 0.78, z: 1}
+  m_LocalScale: {x: 0.74, y: 0.74, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 920020781570373021}
@@ -1964,7 +1964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -247.9, y: -293.5}
+  m_AnchoredPosition: {x: -231.5, y: -281.2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4951405294410300344
@@ -1996,9 +1996,10 @@ MonoBehaviour:
   - {fileID: 9220586094272324953}
   - {fileID: 2939462893958085536}
   cellsIsTouchable: 0
+  cellShuffle: 0
   levelController: {fileID: 1978492947719230505}
-  _shuffleAnimationCount: 4
-  _shuffleTime: 0.3
+  _shuffleAnimationCount: 2
+  _shuffleTime: 0.2
 --- !u!1 &3207718449692248060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,7 +3967,7 @@ MonoBehaviour:
   cellManager: {fileID: 4951405294410300344}
   gridLimits: {x: 4, y: 4}
   cellDistance: 210
-  levelPosition: {x: -247.9, y: -293.5, z: 0}
+  levelPosition: {x: -231.5, y: -281.2, z: 0}
   gameType: 2
   gameMode: 0
 --- !u!1 &6574645203322139608

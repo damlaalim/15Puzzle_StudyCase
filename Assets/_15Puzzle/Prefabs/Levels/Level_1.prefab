@@ -196,9 +196,10 @@ MonoBehaviour:
   - {fileID: 7055096914829776346}
   - {fileID: 2398869337717733328}
   cellsIsTouchable: 0
+  cellShuffle: 0
   levelController: {fileID: 5055003132642206366}
-  _shuffleAnimationCount: 3
-  _shuffleTime: 0.5
+  _shuffleAnimationCount: 2
+  _shuffleTime: 0.2
 --- !u!1 &2893084623871056428
 GameObject:
   m_ObjectHideFlags: 0

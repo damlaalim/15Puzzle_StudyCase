@@ -2947,6 +2947,7 @@ MonoBehaviour:
   - {fileID: 311080863545568480}
   - {fileID: 797790831337495071}
   cellsIsTouchable: 0
+  cellShuffle: 0
   levelController: {fileID: 1170261645218172316}
-  _shuffleAnimationCount: 4
-  _shuffleTime: 0.3
+  _shuffleAnimationCount: 2
+  _shuffleTime: 0.2

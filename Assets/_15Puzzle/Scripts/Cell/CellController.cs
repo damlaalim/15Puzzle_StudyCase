@@ -136,6 +136,8 @@ namespace _15Puzzle.Scripts.Cell
                 elapsed += Time.deltaTime;
                 yield return null;
             }
+
+            transform.localScale = endScale;
         }
 
         public IEnumerator Shake_Routine(float duration, float magnitude)
