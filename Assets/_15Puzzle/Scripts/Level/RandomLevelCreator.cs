@@ -35,6 +35,8 @@ namespace _15Puzzle.Scripts.Level
             levelController.gridLimits = new Vector2Int(_rows, _cols);
             levelController.cellDistance = _cellDistance;
 
+            cellManager.levelController = levelController;
+
             for (var i = 0; i < _rows; i++)
             {
                 for (var j = 0; j < _cols; j++)
@@ -48,6 +50,7 @@ namespace _15Puzzle.Scripts.Level
                     cellController.gridPosition = new Vector2Int(i, j);
                     cellController.cellManager = cellManager;
                     cellController.distance = _cellDistance;
+                    cellController.levelController = levelController;
                     
                     cellManager.cells.Add(cellController);
                 }

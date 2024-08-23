@@ -7,9 +7,7 @@ namespace _15Puzzle.Scripts.Manager
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; } 
-        public GameType gameType = GameType.Classic;
         public bool gameIsStart = false;
-        public GameMode gameMode = GameMode.Normal;
 
         [SerializeField] private TextMeshProUGUI _moveText;
         

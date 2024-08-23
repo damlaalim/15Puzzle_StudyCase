@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using _15Puzzle.Scripts.CanvasSystem;
 using _15Puzzle.Scripts.Cell;
+using _15Puzzle.Scripts.Data;
 using _15Puzzle.Scripts.Manager;
 using UnityEngine;
 
@@ -11,6 +13,8 @@ namespace _15Puzzle.Scripts.Level
         public Vector2Int gridLimits;
         public float cellDistance;
         public Vector3 levelPosition;
+        public GameType gameType = GameType.Classic;
+        public GameMode gameMode = GameMode.Normal;
 
         private Dictionary<int, Vector2Int> _spiralPositions; 
         
@@ -22,6 +26,8 @@ namespace _15Puzzle.Scripts.Level
             CacheSpiralPositions(gridLimits.x, gridLimits.y);
             
             StartCoroutine(cellManager.ShuffleAnimationForCells(cellDistance));
+
+            InGameCanvas.Instance.ShowPeekButton(gameMode == GameMode.Hard);
         }
         
         private void CacheSpiralPositions(int width, int height)

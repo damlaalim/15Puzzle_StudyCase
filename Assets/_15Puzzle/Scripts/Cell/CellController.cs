@@ -33,6 +33,7 @@ namespace _15Puzzle.Scripts.Cell
             {
                 GameManager.Instance.gameIsStart = true;
                 TimeManager.Instance.StartTime();
+                cellManager.ChangeNumberShowCells();
             }
             
             var pos = transform.localPosition;
@@ -42,7 +43,7 @@ namespace _15Puzzle.Scripts.Cell
             StartCoroutine(Swipe_Routine(targetPos));
 
             // calculating the correct targeted position according to the type of game
-            var newPosIsCorrect = GameManager.Instance.gameType switch
+            var newPosIsCorrect = levelController.gameType switch
             {
                 GameType.Classic => CalculateCorrectPositionForClassic(),
                 GameType.Snake => CalculateCorrectPositionForSnake(),

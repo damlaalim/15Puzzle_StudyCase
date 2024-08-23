@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6505546071207329991
+--- !u!1 &7226597784320836980
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 849307341926174351}
-  - component: {fileID: 921503562576034237}
+  - component: {fileID: 5548276857818477723}
+  - component: {fileID: 5618032623508800520}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: RecordManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &849307341926174351
+--- !u!4 &5548276857818477723
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6505546071207329991}
+  m_GameObject: {fileID: 7226597784320836980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,18 +32,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &921503562576034237
+--- !u!114 &5618032623508800520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6505546071207329991}
+  m_GameObject: {fileID: 7226597784320836980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1acba82415548c3a5fb3c79b5f442d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fd55ef1874c4eb48940da6d8548ef35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridLimits: {x: 5, y: 5}
-  levels:
-  - {fileID: 5055003132642206366, guid: 23281197c5d90a242a100645036389bb, type: 3}

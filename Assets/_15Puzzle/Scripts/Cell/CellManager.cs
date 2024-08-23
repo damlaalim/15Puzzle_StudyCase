@@ -12,6 +12,7 @@ namespace _15Puzzle.Scripts.Cell
     {
         public List<CellController> cells;
         public bool cellsIsTouchable;
+        public LevelController levelController;
         
         [SerializeField] private int _shuffleAnimationCount = 4;
         [SerializeField] private float _shuffleTime = .2f; 
@@ -65,11 +66,11 @@ namespace _15Puzzle.Scripts.Cell
         {
             foreach (var cell in cells)
             {
-                if (GameManager.Instance.gameType == GameType.Classic && !cell.CalculateCorrectPositionForClassic())
+                if (levelController.gameType == GameType.Classic && !cell.CalculateCorrectPositionForClassic())
                     return;
-                if (GameManager.Instance.gameType == GameType.Snake && !cell.CalculateCorrectPositionForSnake())
+                if (levelController.gameType == GameType.Snake && !cell.CalculateCorrectPositionForSnake())
                     return;
-                if (GameManager.Instance.gameType == GameType.Spiral && !cell.CalculateCorrectPositionForSpiral())
+                if (levelController.gameType == GameType.Spiral && !cell.CalculateCorrectPositionForSpiral())
                     return;
             }
 
@@ -117,6 +118,14 @@ namespace _15Puzzle.Scripts.Cell
             {
                 var originalPos = new Vector3(cell.gridPosition.x * distance, cell.gridPosition.y * distance, 0);
                 StartCoroutine(cell.Swipe_Routine(originalPos));
+            }
+        }
+
+        public void ChangeNumberShowCells()
+        {
+            foreach (var cell in cells)
+            {
+                cell.ChangeShowNumText(levelController.gameMode == GameMode.Normal);
             }
         }
     }
