@@ -15,8 +15,17 @@ namespace _15Puzzle.Scripts.Cell
         public LevelController levelController;
         
         [SerializeField] private int _shuffleAnimationCount = 4;
-        [SerializeField] private float _shuffleTime = .2f; 
+        [SerializeField] private float _shuffleTime = .2f;
 
+        public void Initialize()
+        {
+            cellsIsTouchable = false;
+            foreach (var cell in cells)
+            {
+                cell.Initialize();
+            }    
+        }
+        
         public void SwipeCells(CellController targetCell)
         {
             var targetX = targetCell.gridPosition.x;
@@ -79,6 +88,7 @@ namespace _15Puzzle.Scripts.Cell
 
         public IEnumerator ShuffleAnimationForCells(float distance)
         {
+            yield return new WaitForSeconds(.7f);
             var gridLimits = LevelManager.Instance.gridLimits;
 
             // run the shuffle animation as many times as you want it to run
@@ -111,6 +121,13 @@ namespace _15Puzzle.Scripts.Cell
                 }
 
                 yield return new WaitForSeconds(_shuffleTime);
+                yield return new WaitForSeconds(.2f);
+                foreach (var cell in cells)
+                {
+                    StartCoroutine(cell.Shake_Routine(.3f, 10));
+                }
+
+                yield return new WaitForSeconds(.3f);
             }
 
             // They return to their original position in the level
@@ -119,6 +136,9 @@ namespace _15Puzzle.Scripts.Cell
                 var originalPos = new Vector3(cell.gridPosition.x * distance, cell.gridPosition.y * distance, 0);
                 StartCoroutine(cell.Swipe_Routine(originalPos));
             }
+
+            yield return new WaitForSeconds(.3f);
+            cellsIsTouchable = true;
         }
 
         public void ChangeNumberShowCells()

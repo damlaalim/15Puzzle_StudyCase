@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _15Puzzle.Scripts.Manager;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace _15Puzzle.Scripts.Cell
@@ -17,7 +18,7 @@ namespace _15Puzzle.Scripts.Cell
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (_cellController.cellManager.cellsIsTouchable)
+            if (_cellController.cellManager.cellsIsTouchable && !GameManager.Instance.gameIsPause)
                 _cellController.cellManager.SwipeCells(_cellController);
         }
     }

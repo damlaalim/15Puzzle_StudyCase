@@ -315,8 +315,11 @@ MonoBehaviour:
   number: 1
   gridPosition: {x: 0, y: 0}
   cellManager: {fileID: 0}
+  distance: 0
+  levelController: {fileID: 0}
   _swipeTime: 0.3
-  _distance: 220
+  _scaleAnimDelay: 0.3
+  _targetScale: {x: 1.2, y: 1.2, z: 0}
   _curve:
     serializedVersion: 2
     m_Curve:

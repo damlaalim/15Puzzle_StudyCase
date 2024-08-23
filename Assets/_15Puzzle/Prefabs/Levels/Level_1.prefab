@@ -664,7 +664,7 @@ MonoBehaviour:
   cellDistance: 210
   levelPosition: {x: -210, y: -255, z: 0}
   gameType: 0
-  gameMode: 1
+  gameMode: 0
 --- !u!1 &4521162294561150085
 GameObject:
   m_ObjectHideFlags: 0

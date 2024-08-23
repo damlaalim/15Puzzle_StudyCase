@@ -23,14 +23,18 @@ namespace _15Puzzle.Scripts.Level
             CanvasManager.Instance.Open(CanvasType.InGameCanvas);
             GameManager.Instance.NewLevelLoaded();
             LevelManager.Instance.gridLimits = gridLimits;
+            
             cellManager.transform.localPosition = levelPosition;
+            
             CacheSpiralPositions(gridLimits.x, gridLimits.y);
             
+            cellManager.Initialize();
             StartCoroutine(cellManager.ShuffleAnimationForCells(cellDistance));
 
             InGameCanvas.Instance.ShowPeekButton(gameMode == GameMode.Hard);
             InGameCanvas.Instance.ChangeGameModeText(gameMode.ToString());
             InGameCanvas.Instance.ChangeGameTypeText(gameType.ToString());
+            
         }
         
         private void CacheSpiralPositions(int width, int height)

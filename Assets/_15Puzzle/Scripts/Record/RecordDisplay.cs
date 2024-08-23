@@ -11,8 +11,16 @@ namespace _15Puzzle.Scripts.Record
         public Transform recordsParent;
         public GameObject recordPrefab;
 
+        private List<GameObject> createdRecords = new List<GameObject>();
+
         public void DisplayRecord()
         {
+            for (int i = 0; i < createdRecords.Count; i++)
+            {
+                DestroyImmediate(createdRecords[i]);
+                
+            }
+            createdRecords.Clear();
             DisplayRecords();
         }
 
@@ -30,6 +38,8 @@ namespace _15Puzzle.Scripts.Record
                 recordObj.transform.Find("TimeText").GetComponent<TextMeshProUGUI>().text = newTime.ToString();
                 recordObj.transform.Find("DateText").GetComponent<TextMeshProUGUI>().text = record.dateCompleted;
                 recordObj.transform.Find("MovesText").GetComponent<TextMeshProUGUI>().text = record.moveCount.ToString();
+                
+                createdRecords.Add(recordObj);
             }
         }
     }
