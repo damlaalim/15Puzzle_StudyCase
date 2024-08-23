@@ -1,5 +1,6 @@
 ﻿using _15Puzzle.Scripts.CanvasSystem;
 using _15Puzzle.Scripts.Cell;
+using _15Puzzle.Scripts.Manager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,7 +22,7 @@ namespace _15Puzzle.Scripts.UI
         {
             foreach (var cell in _cellManager.cells)
             {
-                cell.ChangeShowNumText(false);
+                cell.ChangeShowNumText(!GameManager.Instance.gameIsStart);
             }
         }
     }

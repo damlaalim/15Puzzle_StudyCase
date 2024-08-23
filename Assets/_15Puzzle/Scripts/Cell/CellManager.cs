@@ -128,5 +128,13 @@ namespace _15Puzzle.Scripts.Cell
                 cell.ChangeShowNumText(levelController.gameMode == GameMode.Normal);
             }
         }
+
+        public void ShowCells(bool show)
+        {
+            foreach (var cell in cells)
+            {
+                cell.gameObject.SetActive(show);
+            }
+        }
     }
 }

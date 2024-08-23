@@ -1,4 +1,5 @@
-﻿using _15Puzzle.Scripts.Record;
+﻿using _15Puzzle.Scripts.Manager;
+using _15Puzzle.Scripts.Record;
 using UnityEngine;
 
 namespace _15Puzzle.Scripts.CanvasSystem
@@ -12,5 +13,26 @@ namespace _15Puzzle.Scripts.CanvasSystem
             base.Open();
             _recordsDisplay.DisplayRecord();
         }
+
+        public void MusicOn()
+        {
+            AudioManager.Instance.SetMusicValue(1);
+        }
+        
+        public void MusicOff()
+        {
+            AudioManager.Instance.SetMusicValue(0);
+        }
+        
+        public void SoundOn()
+        {
+            AudioManager.Instance.SetEffectValue(1);
+        }
+        
+        public void SoundOff()
+        {
+            AudioManager.Instance.SetEffectValue(0);
+        }
+        
     }
 }

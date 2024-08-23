@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using _15Puzzle.Scripts.CanvasSystem;
+using _15Puzzle.Scripts.Data;
 using _15Puzzle.Scripts.Manager;
 using _15Puzzle.Scripts.Record;
 using UnityEngine;
@@ -26,10 +28,10 @@ namespace _15Puzzle.Scripts.Level
             Instance ??= this;
         }
 
-        private void Start()
-        {
-            Load();
-        }
+        // private void Start()
+        // {
+        //     Load();
+        // }
         
         private void Save()
         {
@@ -47,12 +49,19 @@ namespace _15Puzzle.Scripts.Level
 
         public void NextLevel()
         {
+            // save record
             var elapsedTime = (float)TimeManager.Instance.GetElapsedTime;
             var moveCount = GameManager.Instance.Move;
             RecordManager.Instance.SaveRecord(LevelNumber, elapsedTime, moveCount);
             
+            // finish level
+            CanvasManager.Instance.Open(CanvasType.LevelEnd);
+            TimeManager.Instance.EndLevel();
+            Destroy(_currentLevel.gameObject);
+            _currentLevel = null;
+            
             Save();
-            Load();
+            // Load();
         }
     }
 }

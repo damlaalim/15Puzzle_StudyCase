@@ -22,8 +22,10 @@ namespace _15Puzzle.Scripts.Manager
         
         public void StartTime()
         {
-            if (_timeRoutine is null)
-                _timeRoutine = StartCoroutine(Time_Routine());
+            if (_timeRoutine is not null)
+                StopCoroutine(_timeRoutine);
+            
+            _timeRoutine = StartCoroutine(Time_Routine());
         }
 
         private IEnumerator Time_Routine()
@@ -35,6 +37,17 @@ namespace _15Puzzle.Scripts.Manager
                 _timeText.text = time.ToString(@"mm\:ss");
                 yield return new WaitForSeconds(1);
             }
+        }
+
+        public void StopTime()
+        {
+            StopCoroutine(_timeRoutine);
+        }
+
+        public void EndLevel()
+        {
+            _elapsedTime = 0;
+            _timeText.text = "00:00";
         }
     }
 }

@@ -3,6 +3,8 @@
     public enum CanvasType
     {
         InGameCanvas,
-        Settings
+        Settings,
+        Start,
+        LevelEnd
     }
 }

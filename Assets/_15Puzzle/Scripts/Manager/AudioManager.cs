@@ -6,12 +6,19 @@ namespace _15Puzzle.Scripts.Manager
 {
     public class AudioManager : MonoBehaviour
     {
+        public static AudioManager Instance { get; private set; }
+
         public AudioSource GetMusicSource => musicSource;
         public AudioSource GetEffectSource => effectSource;
 
         [SerializeField] private AudioSource musicSource, effectSource;
         [SerializeField] private SerializedDictionary<AudioType, AudioClip> audioClipDict;
 
+        private void Awake()
+        {
+            Instance ??= this;
+        }
+        
         public void SetMusicValue(float value) => musicSource.volume = value;
         public void SetEffectValue(float value) => effectSource.volume = value;
         

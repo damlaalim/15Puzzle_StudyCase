@@ -428,7 +428,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3750118657156334228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8591004351227988942}
+        m_TargetAssemblyTypeName: _15Puzzle.Scripts.CanvasSystem.LevelEndCanvas,
+          Assembly-CSharp
+        m_MethodName: NextLevelButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2761872380456786058
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +454,7 @@ GameObject:
   - component: {fileID: 235639804013405005}
   - component: {fileID: 1569609154354833254}
   - component: {fileID: 1955525824617011010}
+  - component: {fileID: 8591004351227988942}
   m_Layer: 5
   m_Name: LevelEndCanvas
   m_TagString: Untagged
@@ -534,6 +548,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8591004351227988942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2761872380456786058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f784a41eea40758fa969ecb802b7b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasType: 3
+  _timeText: {fileID: 5383301222686238382}
 --- !u!1 &4215540964558922317
 GameObject:
   m_ObjectHideFlags: 0
