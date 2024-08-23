@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace _15Puzzle.Scripts.Record
 {
@@ -18,12 +17,12 @@ namespace _15Puzzle.Scripts.Record
             for (int i = 0; i < createdRecords.Count; i++)
             {
                 DestroyImmediate(createdRecords[i]);
-                
             }
             createdRecords.Clear();
             DisplayRecords();
         }
 
+        // new objects are created and record settings are saved
         private void DisplayRecords()
         {
             List<LevelRecord> records = RecordManager.Instance.GetRecords();

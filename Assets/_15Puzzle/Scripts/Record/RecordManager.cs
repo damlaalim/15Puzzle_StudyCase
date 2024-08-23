@@ -17,6 +17,7 @@ namespace _15Puzzle.Scripts.Record
         
         private void Start()
         {
+            // level data is saved in a json file
             filePath = Application.persistentDataPath + "/levelRecords.json";
             LoadRecords();
         }

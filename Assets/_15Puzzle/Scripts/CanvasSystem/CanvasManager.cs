@@ -34,13 +34,6 @@ namespace _15Puzzle.Scripts.CanvasSystem
             Open(startCanvas);
         }
 
-        public void Dispose(bool resetIsIsland)
-        {
-            _history.Clear();
-
-            Open(!resetIsIsland ? startCanvas : CanvasType.InGameCanvas);
-        }
-
         public void Open(CanvasType canvasType)
         {
             if (_current)

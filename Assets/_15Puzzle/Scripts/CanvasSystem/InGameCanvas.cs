@@ -4,8 +4,6 @@ using _15Puzzle.Scripts.Level;
 using _15Puzzle.Scripts.Manager;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace _15Puzzle.Scripts.CanvasSystem
 {

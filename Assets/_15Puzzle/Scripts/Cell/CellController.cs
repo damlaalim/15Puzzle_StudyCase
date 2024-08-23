@@ -69,6 +69,9 @@ namespace _15Puzzle.Scripts.Cell
             correctPosFind = newPosIsCorrect;
         }
 
+        #region AnimationRoutines
+
+        
         public IEnumerator Swipe_Routine(Vector3 targetPos)
         {
             // cellManager.cellsIsTouchable = false;
@@ -154,6 +157,10 @@ namespace _15Puzzle.Scripts.Cell
             transform.localPosition = originalPosition;
         }
 
+        #endregion
+
+        #region CorrectPositionCalculaters
+
         public bool CalculateCorrectPositionForClassic()
         {
             var gridLimits = LevelManager.Instance.gridLimits;
@@ -188,5 +195,7 @@ namespace _15Puzzle.Scripts.Cell
             var correctPos = levelController.GetSpiralPosition(number);
             return correctPos == gridPosition;
         }
+
+        #endregion
     }
 }
