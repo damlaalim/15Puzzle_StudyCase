@@ -23,6 +23,7 @@ namespace _15Puzzle.Scripts.Level
             CanvasManager.Instance.Open(CanvasType.InGameCanvas);
             GameManager.Instance.NewLevelLoaded();
             LevelManager.Instance.gridLimits = gridLimits;
+            TimeManager.Instance.EndLevel();
             
             cellManager.transform.localPosition = levelPosition;
             

@@ -18,7 +18,7 @@ namespace _15Puzzle.Scripts.Cell
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (_cellController.cellManager.cellsIsTouchable && !GameManager.Instance.gameIsPause)
+            if (_cellController.cellManager.cellsIsTouchable && !GameManager.Instance.gameIsPause && !_cellController.cellManager.cellShuffle)
                 _cellController.cellManager.SwipeCells(_cellController);
         }
     }

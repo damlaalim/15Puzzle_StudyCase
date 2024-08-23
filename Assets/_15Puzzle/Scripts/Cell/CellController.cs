@@ -77,7 +77,7 @@ namespace _15Puzzle.Scripts.Cell
         
         public IEnumerator Swipe_Routine(Vector3 targetPos)
         {
-            // cellManager.cellsIsTouchable = false;
+            cellManager.cellsIsTouchable = false;
             var elapsed = 0f;
             var initPos = transform.localPosition;
 
@@ -91,7 +91,7 @@ namespace _15Puzzle.Scripts.Cell
             }
 
             transform.localPosition = targetPos;
-            // cellManager.cellsIsTouchable = true;
+            cellManager.cellsIsTouchable = true;
 
             if (correctPosFind)
                 StartCoroutine(HoverAnimation_Routine());

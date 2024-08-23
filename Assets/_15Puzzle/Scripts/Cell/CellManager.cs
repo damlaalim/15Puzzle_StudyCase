@@ -11,7 +11,7 @@ namespace _15Puzzle.Scripts.Cell
     public class CellManager : MonoBehaviour
     {
         public List<CellController> cells;
-        public bool cellsIsTouchable;
+        public bool cellsIsTouchable, cellShuffle;
         public LevelController levelController;
         
         [SerializeField] private int _shuffleAnimationCount = 4;
@@ -94,6 +94,7 @@ namespace _15Puzzle.Scripts.Cell
 
         public IEnumerator ShuffleAnimationForCells(float distance)
         {
+            cellShuffle = true;
             yield return new WaitForSeconds(.7f);
             var gridLimits = LevelManager.Instance.gridLimits;
 
@@ -144,7 +145,7 @@ namespace _15Puzzle.Scripts.Cell
             }
 
             yield return new WaitForSeconds(.3f);
-            cellsIsTouchable = true;
+            cellShuffle = false;
         }
 
         public void ChangeNumberShowCells()
