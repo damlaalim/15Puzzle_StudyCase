@@ -83,6 +83,12 @@ namespace _15Puzzle.Scripts.Cell
                     return;
             }
 
+            StartCoroutine(LoadNextLevel());
+        }
+
+        private IEnumerator LoadNextLevel()
+        {
+            yield return new WaitForSeconds(.5f);
             LevelManager.Instance.NextLevel();
         }
 
@@ -127,7 +133,7 @@ namespace _15Puzzle.Scripts.Cell
                     StartCoroutine(cell.Shake_Routine(.3f, 10));
                 }
 
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.2f);
             }
 
             // They return to their original position in the level

@@ -4,6 +4,7 @@ using _15Puzzle.Scripts.Level;
 using _15Puzzle.Scripts.Manager;
 using TMPro;
 using UnityEngine;
+using AudioType = _15Puzzle.Scripts.Data.AudioType;
 
 namespace _15Puzzle.Scripts.Cell
 {
@@ -31,8 +32,9 @@ namespace _15Puzzle.Scripts.Cell
         {
             yield return ScaleAnimation_Routine(Vector3.zero, Vector3.one, .2f);
             yield return new WaitForSeconds(.1f);
-            yield return Shake_Routine(.3f, 10);
+            yield return Shake_Routine(.1f, 10);
         }
+        
         public void ChangeNumberText(string text) => _numText.text = text;
 
         public void ChangeShowNumText(bool show) => _numText.enabled = show;
@@ -47,6 +49,7 @@ namespace _15Puzzle.Scripts.Cell
                 cellManager.ChangeNumberShowCells();
             }
 
+            AudioManager.Instance.PlayEffect(AudioType.Tap);
             var pos = transform.localPosition;
             var targetPos = new Vector3(pos.x + (direction.x * distance), pos.y + (direction.y * distance), pos.z);
             gridPosition = new Vector2Int(gridPosition.x + (int)direction.x, gridPosition.y + (int)direction.y);

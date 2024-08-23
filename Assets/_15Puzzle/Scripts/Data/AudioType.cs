@@ -2,6 +2,8 @@
 {
     public enum AudioType
     {
-        MainMenu
+        MainMenu,
+        Tap,
+        Success
     }
 }

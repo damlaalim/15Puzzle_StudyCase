@@ -41,7 +41,8 @@ namespace _15Puzzle.Scripts.Manager
 
         public void StopTime()
         {
-            StopCoroutine(_timeRoutine);
+            if (_timeRoutine is not null)
+                StopCoroutine(_timeRoutine);
         }
 
         public void EndLevel()
