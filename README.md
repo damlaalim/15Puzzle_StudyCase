@@ -34,6 +34,7 @@ Her seviyede farklı gridler bulunmaktadır ve bu oyunun zorluğunu etkileyen bi
 
 ## Kayıtlar
   Her level tamamlandığında level içerisindeki bilgiler bir json dosyasına kaydedilir. Ve bu bilgiler ayarlar sekmesinde listelenir.
+  
 <img src= "https://github.com/user-attachments/assets/a7cb5274-b23f-4799-bb1c-8cea8653491d" width="200px">
 <img src= "https://github.com/user-attachments/assets/ea604e8d-318a-42cf-8ad7-e2e720f18e94" width="400px">
 
