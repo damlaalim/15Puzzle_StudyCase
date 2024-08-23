@@ -23,6 +23,8 @@ namespace _15Puzzle.Scripts.Cell
         private bool correctPosFind;
 
         public void ChangeNumberText(string text) => _numText.text = text;
+
+        public void ChangeShowNumText(bool show) => _numText.enabled = show;
         
         public void Swipe(Vector2 direction)
         {
@@ -34,9 +36,7 @@ namespace _15Puzzle.Scripts.Cell
             }
             
             var pos = transform.localPosition;
-            
             var targetPos = new Vector3(pos.x + (direction.x * distance), pos.y + (direction.y  * distance), pos.z);
-
             gridPosition = new Vector2Int(gridPosition.x + (int)direction.x, gridPosition.y + (int)direction.y);
 
             StartCoroutine(Swipe_Routine(targetPos));

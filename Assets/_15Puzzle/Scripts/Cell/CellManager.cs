@@ -55,6 +55,9 @@ namespace _15Puzzle.Scripts.Cell
                     findTheSpace = true;
             }
 
+            if (findTheSpace)
+                GameManager.Instance.Move++;
+            
             return findTheSpace;
         }
 

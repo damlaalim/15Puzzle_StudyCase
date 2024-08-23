@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _15Puzzle.Scripts.Cell;
+using _15Puzzle.Scripts.Manager;
 using UnityEngine;
 
 namespace _15Puzzle.Scripts.Level
@@ -15,6 +16,7 @@ namespace _15Puzzle.Scripts.Level
         
         public void Initialize()
         {
+            GameManager.Instance.NewLevelLoaded();
             LevelManager.Instance.gridLimits = gridLimits;
             cellManager.transform.localPosition = levelPosition;
             CacheSpiralPositions(gridLimits.x, gridLimits.y);
