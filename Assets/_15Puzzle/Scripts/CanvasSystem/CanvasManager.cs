@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _15Puzzle.Scripts.Data;
 using UnityEngine;
 
@@ -17,7 +18,12 @@ namespace _15Puzzle.Scripts.CanvasSystem
         {
             Instance ??= this;
         }
-        
+
+        private void Start()
+        {
+            Initialize();
+        }
+
         public void Initialize()
         {
             foreach (var canvas in canvasList)

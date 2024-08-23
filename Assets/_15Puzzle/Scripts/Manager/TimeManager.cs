@@ -7,7 +7,9 @@ namespace _15Puzzle.Scripts.Manager
 {
     public class TimeManager : MonoBehaviour
     {
-        public static TimeManager Instance { get; private set; } 
+        public static TimeManager Instance { get; private set; }
+        public double GetElapsedTime => _elapsedTime;
+        
         [SerializeField] private TextMeshProUGUI _timeText;
         
         private double _elapsedTime = 0;

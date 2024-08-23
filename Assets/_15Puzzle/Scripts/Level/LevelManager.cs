@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using _15Puzzle.Scripts.Manager;
+using _15Puzzle.Scripts.Record;
 using UnityEngine;
 
 namespace _15Puzzle.Scripts.Level
@@ -45,6 +47,10 @@ namespace _15Puzzle.Scripts.Level
 
         public void NextLevel()
         {
+            var elapsedTime = (float)TimeManager.Instance.GetElapsedTime;
+            var moveCount = GameManager.Instance.Move;
+            RecordManager.Instance.SaveRecord(LevelNumber, elapsedTime, moveCount);
+            
             Save();
             Load();
         }

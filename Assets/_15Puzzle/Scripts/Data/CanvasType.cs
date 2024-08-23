@@ -3,5 +3,6 @@
     public enum CanvasType
     {
         InGameCanvas,
+        Settings
     }
 }
